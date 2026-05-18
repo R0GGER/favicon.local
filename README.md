@@ -47,6 +47,10 @@ The service starts on [http://localhost:3000](http://localhost:3000).
 
 A JSON endpoint is also available at `/api/icons?url=...` and a health check at `/health`.
 
+## Security
+
+> **Warning:** This service is designed for **local network use only**. Do not expose it to the public internet.
+
 ## Configuration
 
 All settings are configurable via environment variables in `docker-compose.yml`:
