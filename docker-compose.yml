@@ -1,7 +1,6 @@
 services:
   favicon:
-    build: .
-    container_name: favicon-local
+    image: ghcr.io/r0gger/favicon.local:latest
     restart: unless-stopped
     ports:
       - "3100:3000"
