@@ -1,4 +1,4 @@
-# Favicon Local
+# Favicon.Local
 
 A self-hosted favicon service for homelabs and local dashboards. Fetches favicons from public domains, local IPs, and IP:port combinations on your network.
 
