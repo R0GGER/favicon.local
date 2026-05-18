@@ -1,4 +1,4 @@
-# Favicon.Local
+# Favicon.local
 
 A self-hosted favicon service for homelabs and local dashboards. Fetches favicons from public domains, local IPs, and IP:port combinations on your network.
 
@@ -31,6 +31,10 @@ services:
 
 The service starts on [http://localhost:3000](http://localhost:3000).
 
+## Security
+
+> **Warning:** This service is designed for **local network use only**. Do not expose it to the public internet.
+
 ## Usage
 
 ```html
@@ -46,10 +50,6 @@ The service starts on [http://localhost:3000](http://localhost:3000).
 | `format` | png | Output format: `png`, `jpg`, `webp`, `ico` |
 
 A JSON endpoint is also available at `/api/icons?url=...` and a health check at `/health`.
-
-## Security
-
-> **Warning:** This service is designed for **local network use only**. Do not expose it to the public internet.
 
 ## Configuration
 
