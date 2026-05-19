@@ -1,5 +1,7 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { getConnInfo } from "hono/bun";
+import { ipRestriction } from "hono/ip-restriction";
 import { getConfig } from "./utils.js";
 import { fetchFavicon, discoverFavicons } from "./fetcher.js";
 import { renderUI } from "./ui.js";
@@ -7,6 +9,27 @@ import type { OutputFormat } from "./image.js";
 
 const config = getConfig();
 const app = new Hono();
+
+app.use(
+  "*",
+  ipRestriction(getConnInfo, {
+    denyList: [],
+    allowList: [
+      "127.0.0.0/8",
+      "10.0.0.0/8",
+      "172.16.0.0/12",
+      "192.168.0.0/16",
+      "::1",
+      "fe80::/10",
+      "fc00::/7",
+    ],
+  }, async (remote, c) => {
+    return c.json(
+      { error: "Access denied: this service is restricted to local network only" },
+      403
+    );
+  })
+);
 
 app.use("*", cors());
 

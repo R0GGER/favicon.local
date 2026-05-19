@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.1.1] - 2026-05-19
+
+### Added
+- **IP restriction middleware**: Requests from public IP addresses are now blocked with a `403 Forbidden` response. Only private/local network ranges (`127.0.0.0/8`, `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) and IPv6 local addresses (`::1`, `fe80::/10`, `fc00::/7`) are allowed.
+
 ## [1.1.0] - 2025-05-18
 
 ### Changed

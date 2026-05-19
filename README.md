@@ -35,6 +35,16 @@ The service starts on [http://localhost:3000](http://localhost:3000).
 
 > **Warning:** This service is designed for **local network use only**. Do not expose it to the public internet.
 
+Access is enforced at the application level using IP restriction middleware. Only requests from private network ranges are accepted:
+
+- `127.0.0.0/8` — localhost
+- `10.0.0.0/8` — private range A
+- `172.16.0.0/12` — private range B
+- `192.168.0.0/16` — private range C
+- `::1`, `fe80::/10`, `fc00::/7` — IPv6 local
+
+Requests from public IP addresses receive a `403 Forbidden` response.
+
 ## Usage
 
 ```html
